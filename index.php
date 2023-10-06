@@ -28,7 +28,8 @@
                 break;
             }
         }
-    }    
+    }
+    echo "test";
     echo $check;
     if(isset($_GET['imie']) && isset($_GET['nazwisko']) && isset($_GET['pesel'])){
         $imie = $_GET['imie'];
