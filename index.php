@@ -13,6 +13,23 @@
         <input type="submit" value="Oblicz">
     </form>
     <?php
+    $check = "agedyropulik";
+    $check = strtoupper($check);
+    $base = ["G", "A", "D", "E", "R", "Y", "P", "O", "L", "U", "K", "I"];
+    for($i = 0; $i < strlen($check); $i++){
+        for($ii = 0; $ii < count($base); $ii++){
+            if($check[$i] == $base[$ii]){
+                if($ii % 2 == 0){
+                    $check[$i] = $base[$ii + 1];
+                }else
+                {
+                    $check[$i] = $base[$ii-1];
+                }
+                break;
+            }
+        }
+    }
+    echo $check;
     if(isset($_GET['imie']) && isset($_GET['nazwisko']) && isset($_GET['pesel'])){
         $imie = $_GET['imie'];
         $nazwisko = $_GET['nazwisko'];
@@ -27,7 +44,8 @@
         for($i = 0; $i<strlen($imie);$i++){
             echo chr(ord($imie[$i])+1);
         }
-         
+        
+
         function validatePESEL($pesel) {
             // Check if the PESEL number is exactly 11 digits long
             if (strlen($pesel) !== 11 || !is_numeric($pesel)) {
@@ -86,8 +104,8 @@
         }                
         
         // Example usage:        
-        $result = validatePESEL($pesel);
-        echo $result;
+        //$result = validatePESEL($pesel);
+        //echo $result;
         
 
         
